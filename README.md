@@ -1,58 +1,56 @@
-# Welcome to your Lovable project
 
-## Project info
+# AI Scientist - Self-Evolving Research System
 
-**URL**: https://lovable.dev/projects/5a90dd7c-ead5-4f5d-a5f3-cd53a8bb358a
+## Project Overview
 
-## How can I edit this code?
+AI Scientist is an autonomous AI system that generates research, evolves its capabilities, and leverages peer review to validate findings.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- Generate research papers on any topic
+- Leverage ArXiv data for in-depth analysis
+- Choose between quick analysis or deep research
+- Review AI-generated research with peer review system
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5a90dd7c-ead5-4f5d-a5f3-cd53a8bb358a) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js & npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone <YOUR_REPO_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd ai-scientist
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment Options
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+You can deploy this project using various free hosting options:
 
-**Use GitHub Codespaces**
+1. **GitHub Pages**: Free hosting for static sites directly from your GitHub repository
+   - Instructions: https://pages.github.com/
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+2. **Netlify**: Free tier with generous limits
+   - Instructions: https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/
 
-## What technologies are used for this project?
+3. **Vercel**: Free for personal projects
+   - Instructions: https://vercel.com/docs/concepts/deployments/overview
 
-This project is built with .
+4. **Cloudflare Pages**: Free hosting with generous build minutes
+   - Instructions: https://developers.cloudflare.com/pages/framework-guides/deploy-a-react-application/
+
+## Technologies Used
 
 - Vite
 - TypeScript
@@ -60,10 +58,6 @@ This project is built with .
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## License
 
-Simply open [Lovable](https://lovable.dev/projects/5a90dd7c-ead5-4f5d-a5f3-cd53a8bb358a) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+This project is open source and available under the [MIT License](LICENSE).
