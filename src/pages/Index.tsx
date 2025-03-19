@@ -28,7 +28,7 @@ const Index = () => {
               onClick={() => navigate("/research")}
               className="gap-2"
             >
-              Explore Research <ArrowRight className="w-4 h-4" />
+              Generate Research <ArrowRight className="w-4 h-4" />
             </Button>
             <Button 
               variant="outline" 
@@ -108,10 +108,10 @@ const Index = () => {
             </p>
             <Button 
               size="lg" 
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate("/research")}
               className="gap-2"
             >
-              View Dashboard <ArrowRight className="w-4 h-4" />
+              Generate Research <ArrowRight className="w-4 h-4" />
             </Button>
           </CardContent>
         </Card>
