@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Brain, FileText, GitMerge, RotateCw } from "lucide-react";
+import { ArrowRight, Brain, FileText, GitMerge, RotateCw, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
@@ -16,11 +16,11 @@ const Index = () => {
             <Brain className="w-8 h-8 text-primary" />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Self-Evolving AI Scientist
+            AI-Powered Research Generator
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
-            An autonomous AI system that generates research, evolves its capabilities, and leverages 
-            peer review to validate its findings.
+            Generate comprehensive, novel research papers on any topic using advanced AI techniques and 
+            ArXiv integration. Perfect for researchers, students, and knowledge enthusiasts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <Button 
@@ -28,7 +28,7 @@ const Index = () => {
               onClick={() => navigate("/research")}
               className="gap-2"
             >
-              Generate Research <ArrowRight className="w-4 h-4" />
+              Generate Research <Sparkles className="w-4 h-4" />
             </Button>
             <Button 
               variant="outline" 
@@ -44,36 +44,36 @@ const Index = () => {
 
       {/* Features Section */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Core Capabilities</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
               <FileText className="w-8 h-8 text-primary mb-4" />
-              <CardTitle>Research Generation</CardTitle>
+              <CardTitle>ArXiv Integration</CardTitle>
               <CardDescription>
-                Autonomously generates research across multiple scientific domains
+                Leverages the ArXiv database for up-to-date academic research
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p>
-                The AI system formulates hypotheses, designs experiments, collects data,
-                and draws conclusions from its findings.
+                Our system connects directly to ArXiv's API to access the latest scientific papers across 
+                multiple disciplines, ensuring your generated research is grounded in current knowledge.
               </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <RotateCw className="w-8 h-8 text-primary mb-4" />
-              <CardTitle>Self-Evolution</CardTitle>
+              <Brain className="w-8 h-8 text-primary mb-4" />
+              <CardTitle>AI Scientist Engine</CardTitle>
               <CardDescription>
-                Continuously improves its own capabilities and methodologies
+                Powered by advanced AI research generation algorithms
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p>
-                Through feedback loops and reinforcement learning, the system evolves to produce
-                increasingly sophisticated and accurate research.
+                The AI Scientist core processes information, identifies patterns, and generates novel research 
+                including hypotheses, methodologies, results, and conclusions tailored to your chosen topic.
               </p>
             </CardContent>
           </Card>
@@ -81,15 +81,15 @@ const Index = () => {
           <Card>
             <CardHeader>
               <GitMerge className="w-8 h-8 text-primary mb-4" />
-              <CardTitle>AI Peer Review</CardTitle>
+              <CardTitle>Peer Review System</CardTitle>
               <CardDescription>
-                Validates findings through rigorous AI-powered peer review
+                Validates research through AI-powered critical analysis
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p>
-                Multiple AI reviewers assess each piece of research, identifying strengths,
-                weaknesses, and suggesting improvements.
+                Each generated paper undergoes automated peer review by specialized AI models, evaluating 
+                methodology, conclusions, and overall quality to ensure research validity.
               </p>
             </CardContent>
           </Card>
@@ -100,18 +100,19 @@ const Index = () => {
       <section className="container mx-auto px-4 py-16 md:py-24">
         <Card className="bg-primary/5 border-primary/20">
           <CardHeader>
-            <CardTitle className="text-2xl md:text-3xl text-center">Ready to explore the future of AI-driven science?</CardTitle>
+            <CardTitle className="text-2xl md:text-3xl text-center">Ready to generate groundbreaking research?</CardTitle>
           </CardHeader>
           <CardContent className="text-center">
             <p className="text-muted-foreground mb-6">
-              Discover how our self-evolving AI system is transforming scientific research through autonomous learning and peer validation.
+              Enter any research topic and let our AI-powered system create a comprehensive, 
+              peer-reviewed paper in minutes.
             </p>
             <Button 
               size="lg" 
               onClick={() => navigate("/research")}
               className="gap-2"
             >
-              Generate Research <ArrowRight className="w-4 h-4" />
+              Start Generating <ArrowRight className="w-4 h-4" />
             </Button>
           </CardContent>
         </Card>
