@@ -16,16 +16,6 @@ AI Scientist is an autonomous AI system that generates research papers, evolves 
 - **Evolution Tracking**: Monitor how the AI system evolves and improves over time
 - **Interactive Dashboard**: View metrics and insights about generated research
 
-## Demo
-
-[View the live demo](https://your-demo-link.com) (add your deployment link when available)
-
-## Screenshots
-
-![Dashboard](/public/placeholder.svg)
-![Research Generation](/public/placeholder.svg)
-*(Replace with actual screenshots of your application)*
-
 ## Getting Started
 
 ### Prerequisites
