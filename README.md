@@ -1,7 +1,7 @@
 
 # AI Scientist - Self-Evolving Research System
 
-[![AI Scientist Banner](/public/og-image.png)](https://evolving-ai-reviewer.lovable.app/)
+https://evolving-ai-reviewer.lovable.app/
 
 ## Project Overview
 
