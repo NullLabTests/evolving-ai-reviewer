@@ -59,7 +59,20 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.3",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "socket.io-client": "^4.7.4",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.4",
+    "react-hot-toast": "^2.4.1",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "pdf-lib": "^1.17.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "monaco-editor": "^0.44.0",
+    "@monaco-editor/react": "^4.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

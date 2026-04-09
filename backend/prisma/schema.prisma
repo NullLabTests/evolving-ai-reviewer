@@ -1,0 +1,190 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String
+  avatar      String?
+  role        Role     @default(RESEARCHER)
+  preferences Json?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  papers      ResearchPaper[]
+  reviews     Review[]
+  sessions    CollaborationSession[]
+  requests    GenerationRequest[]
+  activities  UserActivity[]
+
+  @@map("users")
+}
+
+model ResearchPaper {
+  id                  String       @id @default(cuid())
+  title               String
+  abstract            String
+  content             String
+  methodology         String?
+  results             String?
+  discussion          String?
+  conclusion          String?
+  citations           Json[]
+  keywords            String[]
+  authors             String[]
+  journal             String
+  publishedAt         DateTime?
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+  provider            String
+  status              PaperStatus  @default(DRAFT)
+  reviewScore         Float?
+  collaborationEnabled Boolean      @default(false)
+
+  // Relations
+  author              User?         @relation(fields: [authorId], references: [id])
+  authorId            String?
+  reviews             Review[]
+  sessions            CollaborationSession[]
+  requests            GenerationRequest[]
+
+  @@map("research_papers")
+}
+
+model Review {
+  id                String   @id @default(cuid())
+  paperId           String
+  provider          String
+  reviewerId        String?
+  overallScore      Float
+  technicalAccuracy Float
+  methodology       Float
+  originality       Float
+  clarity           Float
+  strengths         String[]
+  weaknesses        String[]
+  suggestions       String[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  paper             ResearchPaper @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  reviewer          User?          @relation(fields: [reviewerId], references: [id])
+
+  @@map("reviews")
+}
+
+model CollaborationSession {
+  id             String              @id @default(cuid())
+  paperId        String
+  participants   String[]
+  status         CollaborationStatus @default(ACTIVE)
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  lastActivityAt DateTime            @default(now())
+
+  // Relations
+  paper          ResearchPaper @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  creator        User?         @relation(fields: [creatorId], references: [id])
+  creatorId      String?
+
+  @@map("collaboration_sessions")
+}
+
+model GenerationRequest {
+  id          String            @id @default(cuid())
+  topic       String
+  depth       GenerationDepth
+  provider    String
+  status      RequestStatus     @default(PENDING)
+  userId      String?
+  createdAt   DateTime          @default(now())
+  completedAt DateTime?
+  result      ResearchPaper?
+  error       String?
+
+  // Relations
+  user        User?             @relation(fields: [userId], references: [id])
+  paper       ResearchPaper?    @relation(fields: [paperId], references: [id], onDelete: Cascade)
+  paperId     String?
+
+  @@map("generation_requests")
+}
+
+model UserActivity {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String
+  timestamp DateTime @default(now())
+  metadata  Json?
+
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_activities")
+}
+
+model Analytics {
+  id          String   @id @default(cuid())
+  date        DateTime @default(now())
+  metric      String
+  value       Float
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  @@unique([date, metric])
+  @@map("analytics")
+}
+
+model SystemConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("system_configs")
+}
+
+// Enums
+enum Role {
+  ADMIN
+  RESEARCHER
+  REVIEWER
+}
+
+enum PaperStatus {
+  DRAFT
+  REVIEW
+  PUBLISHED
+  ARCHIVED
+}
+
+enum CollaborationStatus {
+  ACTIVE
+  PAUSED
+  COMPLETED
+}
+
+enum GenerationDepth {
+  QUICK
+  MEDIUM
+  DEEP
+}
+
+enum RequestStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}

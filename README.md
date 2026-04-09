@@ -1,20 +1,47 @@
 
-# AI Scientist - Self-Evolving Research System
+# AI Scientist - Advanced Self-Evolving Research System
 
 https://evolving-ai-reviewer.lovable.app/
 
 ## Project Overview
 
-AI Scientist is an autonomous AI system that generates research papers, evolves its capabilities, and leverages peer review to validate findings. This system allows you to create research content on any topic, with options to integrate with ArXiv data for deeper analysis.
+AI Scientist is an enterprise-grade autonomous AI research system that generates comprehensive research papers, evolves its capabilities, and leverages peer review to validate findings. This advanced system integrates multiple AI providers, real-time collaboration, and production-ready infrastructure for cutting-edge research generation.
 
 ## Features
 
-- **Research Generation**: Generate comprehensive research papers on any topic
+- **Multi-Provider AI Integration**: OpenAI GPT-4, Anthropic Claude, and Cohere models
+- **Advanced Research Generation**: Generate comprehensive research papers on any topic
+- **Real-time Collaboration**: Multi-user collaborative research editing and review
 - **ArXiv Integration**: Leverage ArXiv data for in-depth analysis and citations
-- **Depth Control**: Choose between quick analysis or deep, thorough research
-- **Peer Review System**: Review AI-generated research with an integrated peer review system
-- **Evolution Tracking**: Monitor how the AI system evolves and improves over time
-- **Interactive Dashboard**: View metrics and insights about generated research
+- **Intelligent Peer Review**: AI-powered paper review with multiple scoring metrics
+- **Production Backend**: Node.js/Express API with PostgreSQL and Redis
+- **Live Dashboard**: Real-time metrics, analytics, and system monitoring
+- **Docker Deployment**: Multi-container deployment with monitoring stack
+- **CI/CD Pipeline**: Automated testing, security scanning, and deployment
+- **Advanced UI**: Modern React interface with real-time updates and collaboration
+
+## Architecture
+
+```
+evolving-ai-reviewer/
+frontend/                 # React/TypeScript frontend
+backend/                  # Node.js/Express API
+src/
+  components/            # Advanced UI components
+  pages/                 # React pages
+  hooks/                 # Custom React hooks
+  types/                 # TypeScript definitions
+backend/
+  src/
+    models/              # AI model integrations
+    routes/               # API endpoints
+    services/             # Business logic
+    middleware/           # Express middleware
+    utils/                # Utility functions
+  prisma/                # Database schema
+docker-compose.yml       # Multi-service deployment
+.github/workflows/        # CI/CD pipeline
+```
 
 ## Getting Started
 
@@ -22,23 +49,67 @@ AI Scientist is an autonomous AI system that generates research papers, evolves 
 
 - Node.js (v14+) & npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-### Installation
+### Quick Start (Docker)
 
-```sh
+```bash
 # Clone the repository
-git clone https://github.com/your-username/ai-scientist.git
+git clone https://github.com/NullLabTests/evolving-ai-reviewer.git
+cd evolving-ai-reviewer
 
-# Navigate to the project directory
-cd ai-scientist
+# Start all services
+docker-compose up -d
 
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
+# Access the application
+# Frontend: http://localhost:5173
+# Backend API: http://localhost:3001
+# Database: localhost:5432
+# Monitoring: http://localhost:3000 (Grafana)
 ```
 
-The application will be available at http://localhost:8080
+### Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/NullLabTests/evolving-ai-reviewer.git
+cd evolving-ai-reviewer
+
+# Install frontend dependencies
+npm install
+
+# Install backend dependencies
+cd backend && npm install && cd ..
+
+# Setup environment variables
+cp .env.example .env
+# Edit .env with your API keys
+
+# Setup database
+cd backend && npx prisma migrate dev && npx prisma generate && cd ..
+
+# Start development servers
+npm run dev:all
+```
+
+### Environment Variables
+
+```bash
+# AI Provider API Keys
+OPENAI_API_KEY=your_openai_api_key
+ANTHROPIC_API_KEY=your_anthropic_api_key
+COHERE_API_KEY=your_cohere_api_key
+
+# Database
+DATABASE_URL=postgresql://postgres:postgres123@localhost:5432/evolving_ai_reviewer
+REDIS_URL=redis://localhost:6379
+
+# Security
+JWT_SECRET=your-super-secret-jwt-key
+
+# Application
+NODE_ENV=development
+CORS_ORIGIN=http://localhost:5173
+LOG_LEVEL=info
+```
 
 ## Usage
 
