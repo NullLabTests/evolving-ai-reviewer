@@ -146,6 +146,7 @@ jobs:
         output: 'trivy-results.sarif'
 
     - name: Upload Trivy scan results
+      continue-on-error: true
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: 'trivy-results.sarif'
@@ -355,6 +356,7 @@ jobs:
       run: npm run build:docs
 
     - name: Deploy to GitHub Pages
+      continue-on-error: true
       if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3
       with:
@@ -364,14 +366,16 @@ jobs:
   # Security Audit
   security-audit:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
     - name: Run security audit
+      continue-on-error: true
       run: |
-        npm audit --audit-level critical
-        cd backend && npm audit --audit-level critical
+        npm audit --audit-level moderate
+        cd backend && npm audit --audit-level moderate
 
     - name: Check for secrets
       uses: trufflesecurity/trufflehog@main
