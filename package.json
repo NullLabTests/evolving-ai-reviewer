@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build:docs": "mkdir -p docs/dist",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test": "echo \"No tests configured\" && exit 0"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

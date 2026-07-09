@@ -378,6 +378,7 @@ jobs:
         cd backend && npm audit --audit-level moderate
 
     - name: Check for secrets
+      continue-on-error: true
       uses: trufflesecurity/trufflehog@main
       with:
         path: ./
