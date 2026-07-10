@@ -42,7 +42,7 @@
     "compromise": "^14.10.0",
     "citation-js": "^0.6.7",
     "scholarly": "^1.2.0",
-    "arxivjs": "^1.0.5",
+    "arxivjs": "^0.0.11",
     "socket.io": "^4.7.4",
     "redis": "^4.6.11",
     "bull": "^4.12.2",
