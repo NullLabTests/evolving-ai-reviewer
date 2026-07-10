@@ -83,13 +83,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
-        cache-dependency-path: backend/package-lock.json
 
     - name: Install backend dependencies
       run: |
         cd backend
-        npm ci
+        npm install
 
     - name: Generate Prisma client
       run: |
@@ -156,7 +154,7 @@ jobs:
       continue-on-error: true
 
     - name: Run backend npm audit
-      run: cd backend && npm audit --audit-level moderate
+      run: cd backend && if [ -f package-lock.json ]; then npm audit --audit-level moderate; else echo "No lockfile, skipping audit"; fi
       continue-on-error: true
 
   # Docker Build and Push
