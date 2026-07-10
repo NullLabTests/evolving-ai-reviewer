@@ -67,7 +67,6 @@
     "@types/passport-local": "^1.0.38",
     "@types/multer": "^1.4.11",
     "@types/pdf-parse": "^1.1.4",
-    "@types/mammoth": "^1.6.0",
     "@types/natural": "^5.6.2",
     "@types/lodash": "^4.14.202",
     "@types/uuid": "^9.0.7",
